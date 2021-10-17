@@ -2,6 +2,7 @@ config.yml
 
 # Python
 venv
+__pycache__
 
 # Vim
 .*.swp
