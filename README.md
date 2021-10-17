@@ -13,6 +13,10 @@ You will need
 - a subject with the `admin` role (created in Nightscout's admin page)
 - SMTP login info (look up how to get this from your email provider)
 
+## Future plans
+
+I want to eventually have a way to limit the bg values that can be seen by a temporary user to only values in their time frame. In other words, someone that has been given access from 1pm-3pm should only be able to see values from 1pm-3pm.
+
 ## Installation (without Docker)
 
 1. Check out the repo.
