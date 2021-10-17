@@ -15,6 +15,8 @@ delete_loop_interval: 300 # 5 min
 
 port: 5000
 
+debug: false
+
 login:
   username: changeme
   password: changeme

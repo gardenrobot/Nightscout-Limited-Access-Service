@@ -24,7 +24,7 @@ def share():
     token = helper.get_token_from_subject_id(subject_id)
 
     # mail subject link to site
-#    helper.send_mail(email, hours, token)
+#    helper.send_mail(email, hours, token) # TODO uncomment this
 
     return render_template('share.html')
 

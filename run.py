@@ -17,4 +17,4 @@ if __name__ == '__main__': # TODO turn debug mode off
     app.secret_key = uuid.uuid4().hex
 
     # Start flask
-    app.run(host='0.0.0.0', port=config['port'], debug=DEV_MODE) # TODO how to do prod mode?
+    app.run(host='0.0.0.0', port=config['port'], debug=config['debug'])
