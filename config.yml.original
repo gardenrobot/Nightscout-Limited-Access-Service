@@ -1,0 +1,16 @@
+smtp:
+  address: your@email.com
+  password: yourpass
+  server: smtp.youremail.com
+  port: 465
+
+nightscout:
+  # keep the /api/v2/authorization/subjects ending
+  url: https://your.nightscout.com/api/v2/authorization/subjects
+
+  # create this in the NS admin page
+  token: token-12345678
+
+delete_loop_interval: 300 # 5 min
+
+port: 5000
