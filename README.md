@@ -1,17 +1,17 @@
 # Nightscout Limited Access Service
 
-This is a webapp that allows Nightscout users to grant temporary access to the instance. Inspired by Google Maps' location sharing feature.
+This is a webapp that allows Nightscout users to grant people temporary access to the server. Inspired by Google Maps' location sharing feature.
 
 ## How it works
 
-The webapp will prompt the user for an email address of the person to share access with and the amount of time to share. A token will be generated and emailed to the person. After the given time has passed, the token will be revoked.
+The webapp will prompt the user for an email address of the person to share access with and the amount of time to share. It will generate a token and email it to the person. After the given time has passed, the app will revoke the token.
 
 ## Requirements
 
 You will need
 - a Nightscout server
 - a subject with the `admin` role (created in Nightscout's admin page)
-- SMTP login info
+- SMTP login info (look up how to get this from your email provider)
 
 ## Installation (without Docker)
 
