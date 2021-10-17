@@ -1,7 +1,7 @@
 from app import app, helper
 from flask import request, render_template
 
-@app.route('/') # TODO put html in template files
+@app.route('/')
 def main(): # TODO password protect this
     return render_template('start.html')
 
@@ -14,7 +14,7 @@ def share():
     subject_id = helper.create_subject(email, hours)
 
     # get token from id
-    token = [s['accessToken'] for s in helper.get_subjects() if s['_id'] == subject_id][0]
+    token = helper.get_token_from_subject_id(subject_id)
 
     # mail subject link to site
 #    helper.send_mail(email, hours, token)

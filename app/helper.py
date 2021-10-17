@@ -32,6 +32,9 @@ def send_mail(email, hours, token):
         smtp.login(smtp_config['address'], smtp_config['password'])
         smtp.send_message(msg)
 
+def get_token_from_subject_id(subject_id):
+    return [s['accessToken'] for s in get_subjects() if s['_id'] == subject_id][0]
+
 def get_subjects():
     """Returns a list of all subjects"""
     url = config['nightscout']['url']
