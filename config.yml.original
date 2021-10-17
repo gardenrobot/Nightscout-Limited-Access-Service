@@ -14,3 +14,7 @@ nightscout:
 delete_loop_interval: 300 # 5 min
 
 port: 5000
+
+login:
+  username: changeme
+  password: changeme
