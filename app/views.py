@@ -1,11 +1,5 @@
-from flask import Flask, request, session
-import _thread
-import misc
-import nightscout
-
-DEV_MODE=True
-
-app = Flask(__name__)
+from app import app, helper
+from flask import request
 
 @app.route('/') # TODO put html in template files
 def main(): # TODO password protect this
@@ -28,13 +22,13 @@ def share():
     hours = int(request.form['hours'])
 
     # create subject
-    subject_id = nightscout.create_subject(email, hours)
+    subject_id = helper.create_subject(email, hours)
 
     # get token from id
-    token = [s['accessToken'] for s in nightscout.get_subjects() if s['_id'] == subject_id][0]
+    token = [s['accessToken'] for s in helper.get_subjects() if s['_id'] == subject_id][0]
 
     # mail subject link to site
-#    misc.send_mail(email, hours, token)
+#    helper.send_mail(email, hours, token)
 
     return '''
 <html>
@@ -42,12 +36,3 @@ def share():
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
   <div>Sent! A link to the Nightscout app has been sent to their email.</div>
 </html>'''
-
-
-if __name__ == '__main__': # TODO turn debug mode off
-    # Start the delete loop in its own thread
-    _thread.start_new_thread(misc.delete_loop, ())
-
-    # Start flask
-    port = misc.load_config()['port']
-    app.run(host='0.0.0.0', port=port, debug=DEV_MODE) # TODO how to do prod mode?
