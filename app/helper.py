@@ -7,11 +7,13 @@ import requests
 import time
 
 # TODO give less privilege?
-ROLES = ['admin', 'readable'] # Readable is redundant. There is some issue with only sending one item in the list. TODO fix this.
+ROLES = ['status-only', 'readable'] # Status-only is redundant. There is some issue with only sending one item in the list. TODO fix this.
 
 SUBJECT_PREFIX = 'NLAS Temp'
 
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
+
+URL_PATH = '/api/v2/authorization/subjects'
 
 
 def send_mail(email, hours, token):
@@ -38,7 +40,7 @@ def get_token_from_subject_id(subject_id):
 
 def get_subjects():
     """Returns a list of all subjects"""
-    url = config['nightscout']['url']
+    url = config['nightscout']['url'] + URL_PATH
     params = {'token': config['nightscout']['token']}
 
     r = requests.get(url, params=params)
@@ -49,7 +51,7 @@ def create_subject(email, hours):
         Takes an email address and number of hours and creates a subject that
         expires X hours from the current time. Returns the subject id.
     """
-    url = config['nightscout']['url']
+    url = config['nightscout']['url'] + URL_PATH
     params = {'token': config['nightscout']['token']}
 
     delete_time = (datetime.now() + timedelta(hours=hours)).strftime(DATE_FORMAT)
@@ -63,11 +65,10 @@ def create_subject(email, hours):
 
 def delete_subject(subject_id):
     """Takes a subject id and deletes it from NS"""
-    url = config['nightscout']['url']
+    url = config['nightscout']['url'] + URL_PATH + '/' + subject_id
     params = {'token': config['nightscout']['token']}
 
-    delete_url = url+'/'+subject_id
-    r = requests.delete(delete_url, params=params)
+    r = requests.delete(url, params=params)
 
 def delete_old_subjects():
     """
