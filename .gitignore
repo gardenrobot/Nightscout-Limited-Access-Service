@@ -1,0 +1,7 @@
+config.yml
+
+# Python
+venv
+
+# Vim
+.*.swp
