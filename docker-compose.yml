@@ -4,6 +4,8 @@ services:
   app:
     build:
       context: .
+    volumes:
+      - ./config.yml:/nlas/config.yml
     restart: unless-stopped
     ports:
       - 5000:5000

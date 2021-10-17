@@ -1,9 +1,11 @@
+# This is needed to connect to your email provider's SMTP server
 smtp:
   address: your@email.com
   password: yourpass
   server: smtp.youremail.com
   port: 465
 
+# Information about your Nightscout instance
 nightscout:
   # keep the /api/v2/authorization/subjects ending
   url: https://your.nightscout.com/api/v2/authorization/subjects
@@ -11,12 +13,13 @@ nightscout:
   # create this in the NS admin page
   token: token-12345678
 
+# The login for the NLAS webapp
+login:
+  username: changeme
+  password: changeme
+
 delete_loop_interval: 300 # 5 min
 
 port: 5000
 
 debug: false
-
-login:
-  username: changeme
-  password: changeme

@@ -1,12 +1,14 @@
 FROM python:3.8-slim
 
+RUN mkdir /nlas
+WORKDIR /nlas
+
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY app.py .
-COPY misc.py .
-COPY nightscout.py .
-COPY config.yml .
+COPY run.py .
+COPY config.py .
+COPY app ./app
 
 ENV FLASH_APP=app
 
