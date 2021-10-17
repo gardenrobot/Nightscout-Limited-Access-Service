@@ -9,7 +9,7 @@ DEV_MODE=True
 
 from app import app, helper
 
-if __name__ == '__main__': # TODO turn debug mode off
+if __name__ == '__main__':
     # Start the delete loop in its own thread
     _thread.start_new_thread(helper.delete_loop, ())
 

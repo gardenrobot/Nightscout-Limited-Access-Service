@@ -6,7 +6,6 @@ import re
 import requests
 import time
 
-# TODO give less privilege?
 ROLES = ['status-only', 'readable'] # Status-only is redundant. There is some issue with only sending one item in the list. TODO fix this.
 
 SUBJECT_PREFIX = 'NLAS Temp'
