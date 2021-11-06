@@ -7,15 +7,5 @@ services:
     volumes:
       - ./config.yml:/nlas/config.yml
     restart: unless-stopped
-    networks:
-      - web
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.nlas.loadbalancer.server.port=5000"
-      - "traefik.http.routers.nlas.rule=Host(`nlas.thembo-industries.com`)"
-      - "traefik.http.routers.nlas.entrypoints=websecure"
-      - "traefik.http.routers.nlas.tls.certresolver=myhttpchallenge"
-
-networks:
-  web:
-    external: true
+    ports:
+      - 5000:5000
